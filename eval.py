@@ -3,7 +3,7 @@ put the model into eval mode for inference
 """
 
 from transformers import AutoTokenizer, AutoModelForCausalLM
-from peft import PeftModel, PeftConfig
+from peft import PeftModel
 
 base_model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-rw-1b")
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-rw-1b")

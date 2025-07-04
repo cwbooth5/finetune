@@ -28,7 +28,6 @@ dataset = dataset.map(combine_fields)
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 tokenizer.pad_token = tokenizer.eos_token
 
-
 def tokenize(example):
     tokens = tokenizer(
         example["text"],
@@ -40,8 +39,6 @@ def tokenize(example):
     return tokens
 
 tokenized_dataset = dataset.map(tokenize, remove_columns=dataset.column_names)
-
-
 
 # ---- Load Model ----
 model = AutoModelForCausalLM.from_pretrained(MODEL_NAME)
@@ -81,4 +78,3 @@ trainer.train()
 
 model.save_pretrained(OUTPUT_DIR)
 tokenizer.save_pretrained(OUTPUT_DIR)
-
